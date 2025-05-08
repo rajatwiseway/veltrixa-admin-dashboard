@@ -120,7 +120,7 @@
     <div class="bg-[#0f0e1e] p-3 rounded-2xl shadow-lg">
       <div class="flex items-center justify-between mb-3">
         <h3 class="text-lg font-semibold">Recent Activity</h3>
-        <button class="text-sm text-blue-400 hover:text-blue-300">View All</button>
+        <button class="text-sm text-blue-400 hover:text-blue-300 cursor-pointer">View All</button>
       </div>
       <div class="overflow-x-auto">
         <table class="w-full text-sm text-left">

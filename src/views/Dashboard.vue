@@ -25,7 +25,7 @@
         <!-- User dropdown -->
         <div class="relative">
           <button @click="userMenuOpen = !userMenuOpen" class="flex items-center space-x-2">
-            <img class="h-8 w-8 rounded-full" src="https://via.placeholder.com/40" alt="User avatar">
+            <img class="h-8 w-10 rounded-full" src="https://i.pravatar.cc/150?img=5" alt="User avatar">
             <span class="hidden md:inline">Admin User</span>
           </button>
 
@@ -295,15 +295,15 @@
             class="font-medium">3</span> of <span class="font-medium">24</span> entries</div>
         <div class="flex space-x-2">
           <button
-            class="px-3 py-1 border border-gray-600 rounded-md text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600">Previous</button>
+            class="px-3 py-1 border border-gray-600 rounded-md text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600 cursor-pointer">Previous</button>
           <button
-            class="px-3 py-1 border border-gray-600 rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700">1</button>
+            class="px-3 py-1 border border-gray-600 rounded-md text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 cursor-pointer">1</button>
           <button
-            class="px-3 py-1 border border-gray-600 rounded-md text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600">2</button>
+            class="px-3 py-1 border border-gray-600 rounded-md text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600 cursor-pointer">2</button>
           <button
-            class="px-3 py-1 border border-gray-600 rounded-md text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600">3</button>
+            class="px-3 py-1 border border-gray-600 rounded-md text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600 cursor-pointer">3</button>
           <button
-            class="px-3 py-1 border border-gray-600 rounded-md text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600">Next</button>
+            class="px-3 py-1 border border-gray-600 rounded-md text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600 cursor-pointer">Next</button>
         </div>
       </div>
     </div>

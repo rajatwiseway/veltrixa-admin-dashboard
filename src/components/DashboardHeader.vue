@@ -26,7 +26,7 @@
           <!-- User dropdown -->
           <div class="relative">
             <button @click="userMenuOpen = !userMenuOpen" class="flex items-center space-x-2">
-              <img class="h-8 w-8 rounded-full" src="https://via.placeholder.com/40" alt="User avatar">
+              <img class="h-8 w-8 rounded-full" src="https://i.pravatar.cc/150?img=5" alt="User avatar">
               <span class="hidden md:inline">Admin User</span>
             </button>
 
