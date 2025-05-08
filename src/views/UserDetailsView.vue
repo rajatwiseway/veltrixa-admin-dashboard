@@ -57,7 +57,7 @@
       </div>
     </div>
     <!-- User Info Sections -->
-    <div class="grid md:grid-cols-3 gap-5 mb-6">
+    <div class="grid lg:grid-cols-3 gap-5 mb-6">
       <div class="bg-[#0f0e1e]  p-5 rounded-2xl shadow-lg shadow-blue-500/20 transition duration-300">
         <div class="flex items-center justify-between mb-4">
           <h3 class="text-lg font-semibold">Personal Info</h3>
@@ -135,16 +135,16 @@
           <tbody>
             <tr v-for="(log, i) in activityLogs" :key="i"
               class="border-b border-gray-700 hover:bg-gray-700/30 transition duration-200">
-              <td class="py-3 px-6">
+              <td class="py-2 px-3 md:py-3 md:px-6 min-w-[100px]">
                 <div class="font-medium">{{ log.date }}</div>
                 <div class="text-xs text-gray-400">{{ log.time }}</div>
               </td>
-              <td class="py-3 pr-6">
-                <span :class="getActionClass(log.action)" class="px-2 py-1 rounded-full text-xs font-medium">
+              <td class="py-2 px-3 md:py-3 md:px-6 min-w-[100px]">
+                <span :class="getActionClass(log.action)" class="px-2 py-1 rounded-full text-xs font-medium w-full text-center block lg:inline">
                   {{ log.action }}
                 </span>
               </td>
-              <td class="py-3 pr-6">
+              <td class="py-2 px-3 md:py-3 md:px-6 min-w-[100px]">
                 <div class="flex items-center">
                   <span :class="getDeviceIcon(log.device).color" class="p-1.5 mr-2 rounded-md bg-opacity-20">
                     <component :is="getDeviceIcon(log.device).icon" class="w-4 h-4" />
@@ -152,7 +152,7 @@
                   {{ log.device }}
                 </div>
               </td>
-              <td class="py-3">
+              <td class="py-3 min-w-[100px]">
                 <div class="flex items-center justify-between">
                   <span>{{ log.ip }}</span>
                   <button class="text-gray-400 hover:text-white">
