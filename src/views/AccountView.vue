@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-900 text-gray-100 min-h-screen p-3 md:p-6">
-    <div class="flex justify-between items-center mb-3">
+    <div class="flex justify-between flex-col items-center mb-3 gap-2 md:flex-row">
       <div>
         <h1 class="text-md md:text-xl font-bold">Admin Account</h1>
         <p class="text-gray-400">Manage your administrator profile and settings</p>
