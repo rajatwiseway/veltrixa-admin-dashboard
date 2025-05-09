@@ -71,34 +71,66 @@
         </li>
 
         <!-- airdrop -->
-        <li class="hidden">
+        <li>
           <router-link
             to="/airdrop"
-            @click="setActive('airdrop')"
-            class="flex items-center p-2 rounded-lg group"
+            @click="toggleAirdrop"
+            class="flex items-center justify-between p-2 rounded-lg group cursor-pointer"
             :class="
-              activeItem === 'airdrop'
+              activeItem.startsWith('Airdrop')
                 ? 'bg-main-card text-gray-100'
                 : 'text-gray-300 hover:bg-gray-800'
             "
           >
+            <div class="flex items-center">
+              <svg
+                class="w-5 h-5 transition duration-75"
+                :class="
+                  activeItem === 'airdrop'
+                    ? 'text-gray-100'
+                    : 'text-gray-300 group-hover:text-gray-300'
+                "
+                fill="currentColor"
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M152 64c-13.3 0-24 10.7-24 24s10.7 24 24 24h51.2L158.4 203.2l-18.3-55c-4.3-13-17.2-20.8-30.7-18.4s-23.1 14.5-23.1 28.2V208H32v48h54.3l35 105H64v48h80v-48H131.7l-35-105H168v136h48V256h80v136h48V256h71.3l-35 105H368v48h80v-48h-48.7l35-105H480v-48h-54.3v-52.8c0-13.7-9.8-25.4-23.1-28.2s-26.4 5.3-30.7 18.4l-18.3 55L308.8 112H360c13.3 0 24-10.7 24-24s-10.7-24-24-24c-23.6 0-45.1 10.4-59.7 28.3L256 118.3 211.7 92.3C197.1 74.4 175.6 64 152 64z"
+                />
+              </svg>
+              <span class="ms-3 capitalize text-sm">Airdrop</span>
+            </div>
             <svg
-              class="w-5 h-5 transition duration-75"
-              :class="
-                activeItem === 'airdrop'
-                  ? 'text-gray-100'
-                  : 'text-gray-300 group-hover:text-gray-300'
-              "
+              class="w-4 h-4 transition-transform duration-200"
+              :class="{ 'rotate-90': isAirdropOpen }"
               fill="currentColor"
-              viewBox="0 0 512 512"
-              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
             >
               <path
-                d="M152 64c-13.3 0-24 10.7-24 24s10.7 24 24 24h51.2L158.4 203.2l-18.3-55c-4.3-13-17.2-20.8-30.7-18.4s-23.1 14.5-23.1 28.2V208H32v48h54.3l35 105H64v48h80v-48H131.7l-35-105H168v136h48V256h80v136h48V256h71.3l-35 105H368v48h80v-48h-48.7l35-105H480v-48h-54.3v-52.8c0-13.7-9.8-25.4-23.1-28.2s-26.4 5.3-30.7 18.4l-18.3 55L308.8 112H360c13.3 0 24-10.7 24-24s-10.7-24-24-24c-23.6 0-45.1 10.4-59.7 28.3L256 118.3 211.7 92.3C197.1 74.4 175.6 64 152 64z"
+                fill-rule="evenodd"
+                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                clip-rule="evenodd"
               />
             </svg>
-            <span class="ms-3 capitalize text-sm">airdrop</span>
           </router-link>
+
+          <ul v-show="isAirdropOpen" class="ml-8 mt-1 space-y-1">
+            <li v-for="plan in airdropPlans" :key="plan.name">
+              <router-link
+                :to="'/airdrop/' + plan.route"
+                @click="setActive('Airdrop/' + plan.route)"
+                class="flex items-center p-2 rounded-lg group text-sm"
+                :class="
+                  activeItem === 'Airdrop/' + plan.route
+                    ? 'text-purple-300'
+                    : 'text-gray-400 hover:text-gray-300'
+                "
+              >
+                <i :class="plan.icon" class="w-5 h-5 text-center"></i>
+                <span class="ms-3 capitalize text-sm">{{ plan.name }}</span>
+              </router-link>
+            </li>
+          </ul>
         </li>
 
         <li>
@@ -162,14 +194,14 @@
           </ul>
         </li>
 
-        <!-- Deals -->
-        <li class="hidden">
+        <!-- Ranking -->
+        <li class="">
           <router-link
-            to="/deals"
-            @click="setActive('deals')"
+            to="/ranking"
+            @click="setActive('ranking')"
             class="flex items-center p-2 rounded-lg group"
             :class="
-              activeItem === 'deals'
+              activeItem === 'ranking'
                 ? 'bg-main-card text-gray-100'
                 : 'text-gray-300 hover:bg-gray-800'
             "
@@ -177,7 +209,7 @@
             <svg
               class="w-5 h-5 transition duration-75"
               :class="
-                activeItem === 'deals'
+                activeItem === 'ranking'
                   ? 'text-gray-100'
                   : 'text-gray-300 group-hover:text-gray-300'
               "
@@ -185,10 +217,70 @@
               viewBox="0 0 640 512"
             >
               <path
-                d="M434.7 167.9l-38.6 38.6c-4.5 4.5-11.8 4.5-16.3 0l-74.6-74.6c-4.5-4.5-4.5-11.8 0-16.3l38.6-38.6c20.9-20.9 54.9-20.9 75.8 0l15.1 15.1c20.9 20.9 20.9 54.9 0 75.8zM187.3 344.1l38.6-38.6c4.5-4.5 11.8-4.5 16.3 0l74.6 74.6c4.5 4.5 4.5 11.8 0 16.3l-38.6 38.6c-20.9 20.9-54.9 20.9-75.8 0l-15.1-15.1c-20.9-20.9-20.9-54.9 0-75.8z"
+                d="M353.8 54.1L330.2 6.3c-3.9-8.3-16.1-8.6-20.4 0L286.2 54.1l-52.3 7.5c-9.3 1.4-13.3 12.9-6.4 19.8l38 37-9 52.1c-1.4 9.3 8.2 16.5 16.8 12.2l46.9-24.8 46.6 24.4c8.6 4.3 18.3-2.9 16.8-12.2l-9-52.1 38-36.6c6.8-6.8 2.9-18.3-6.4-19.8l-52.3-7.5zM256 256c-17.7 0-32 14.3-32 32l0 192c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-192c0-17.7-14.3-32-32-32l-128 0zM32 320c-17.7 0-32 14.3-32 32L0 480c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-128c0-17.7-14.3-32-32-32L32 320zm416 96l0 64c0 17.7 14.3 32 32 32l128 0c17.7 0 32-14.3 32-32l0-64c0-17.7-14.3-32-32-32l-128 0c-17.7 0-32 14.3-32 32z"
               />
             </svg>
-            <span class="ms-3 capitalize text-sm">Deals</span>
+            <span class="ms-3 capitalize text-sm">Ranking</span>
+          </router-link>
+        </li>
+
+        <!-- Withdrawal  -->
+        <li class="">
+          <router-link
+            to="/withdrawal"
+            @click="setActive('withdrawal')"
+            class="flex items-center p-2 rounded-lg group"
+            :class="
+              activeItem === 'withdrawal'
+                ? 'bg-main-card text-gray-100'
+                : 'text-gray-300 hover:bg-gray-800'
+            "
+          >
+            <svg
+              class="w-5 h-5 transition duration-75"
+              :class="
+                activeItem === 'withdrawal'
+                  ? 'text-gray-100'
+                  : 'text-gray-300 group-hover:text-gray-300'
+              "
+              fill="currentColor"
+              viewBox="0 0 640 512"
+            >
+              <path
+                d="M535 41c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l64 64c4.5 4.5 7 10.6 7 17s-2.5 12.5-7 17l-64 64c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l23-23L384 112c-13.3 0-24-10.7-24-24s10.7-24 24-24l174.1 0L535 41zM105 377l-23 23L256 400c13.3 0 24 10.7 24 24s-10.7 24-24 24L81.9 448l23 23c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L7 441c-4.5-4.5-7-10.6-7-17s2.5-12.5 7-17l64-64c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM96 64l241.9 0c-3.7 7.2-5.9 15.3-5.9 24c0 28.7 23.3 52 52 52l117.4 0c-4 17 .6 35.5 13.8 48.8c20.3 20.3 53.2 20.3 73.5 0L608 169.5 608 384c0 35.3-28.7 64-64 64l-241.9 0c3.7-7.2 5.9-15.3 5.9-24c0-28.7-23.3-52-52-52l-117.4 0c4-17-.6-35.5-13.8-48.8c-20.3-20.3-53.2-20.3-73.5 0L32 342.5 32 128c0-35.3 28.7-64 64-64zm64 64l-64 0 0 64c35.3 0 64-28.7 64-64zM544 320c-35.3 0-64 28.7-64 64l64 0 0-64zM320 352a96 96 0 1 0 0-192 96 96 0 1 0 0 192z"
+              />
+            </svg>
+            <span class="ms-3 capitalize text-sm">Withdrawal</span>
+          </router-link>
+        </li>
+
+        <!-- TRADING CAPITAL -->
+        <li class="">
+          <router-link
+            to="/trading-capital"
+            @click="setActive('trading-capital')"
+            class="flex items-center p-2 rounded-lg group"
+            :class="
+              activeItem === 'trading-capital'
+                ? 'bg-main-card text-gray-100'
+                : 'text-gray-300 hover:bg-gray-800'
+            "
+          >
+            <svg
+              class="w-5 h-5 transition duration-75"
+              :class="
+                activeItem === 'trading-capital'
+                  ? 'text-gray-100'
+                  : 'text-gray-300 group-hover:text-gray-300'
+              "
+              fill="currentColor"
+              viewBox="0 0 640 512"
+            >
+              <path
+                d="M320 96L192 96 144.6 24.9C137.5 14.2 145.1 0 157.9 0L354.1 0c12.8 0 20.4 14.2 13.3 24.9L320 96zM192 128l128 0c3.8 2.5 8.1 5.3 13 8.4C389.7 172.7 512 250.9 512 416c0 53-43 96-96 96L96 512c-53 0-96-43-96-96C0 250.9 122.3 172.7 179 136.4c0 0 0 0 0 0s0 0 0 0c4.8-3.1 9.2-5.9 13-8.4zm84 88c0-11-9-20-20-20s-20 9-20 20l0 14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1c0 0 0 0 0 0s0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4l0 14.6c0 11 9 20 20 20s20-9 20-20l0-13.8c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15c0 0 0 0 0 0l-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7l0-13.9z"
+              />
+            </svg>
+            <span class="ms-3 capitalize text-sm">Trading Capital</span>
           </router-link>
         </li>
 
@@ -304,6 +396,7 @@ export default {
     return {
       activeItem: "/",
       isSubscriptionOpen: false,
+      isAirdropOpen: false,
       subscriptionPlans: [
         {
           name: "Ignite",
@@ -324,6 +417,18 @@ export default {
           icon: "fas fa-infinity text-indigo-400",
         }, // Infinity = Quantum Scale
       ],
+      airdropPlans: [
+        {
+          name: "Completed Taks",
+          route: "completed-tasks",
+          icon: "fas fa-fire text-yellow-500",
+        },
+        {
+          name: "Pending Taks",
+          route: "pending-tasks",
+          icon: "fas fa-gem text-blue-400",
+        },
+      ],
     };
   },
   methods: {
@@ -335,6 +440,12 @@ export default {
       this.isSubscriptionOpen = !this.isSubscriptionOpen;
       if (this.isSubscriptionOpen) {
         this.activeItem = "Subscription";
+      }
+    },
+    toggleAirdrop() {
+      this.isAirdropOpen = !this.isAirdropOpen;
+      if (this.isAirdropOpen) {
+        this.activeItem = "Airdrop";
       }
     },
   },

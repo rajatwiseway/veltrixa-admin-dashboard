@@ -8,7 +8,7 @@
 <script setup>
 import { useRoute } from 'vue-router'
 
-import Table from "../components/Table.vue";
+import Table from "../components/UserTable.vue";
 
 const route = useRoute()
 const planId = route.params.planId
