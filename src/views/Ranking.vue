@@ -118,7 +118,7 @@
                 </div>
               </td>
               <td class="px-4 py-4 whitespace-nowrap text-sm text-indigo-300">
-                Cortex Agent
+                Quantum Seeker
               </td>
               <td
                 class="px-4 py-4 whitespace-nowrap text-sm font-semibold text-emerald-400 font-mono"
@@ -160,7 +160,7 @@
                 </div>
               </td>
               <td class="px-4 py-4 whitespace-nowrap text-sm text-indigo-300">
-                Cortex Agent
+                Code Sentinel
               </td>
               <td
                 class="px-4 py-4 whitespace-nowrap text-sm font-semibold text-emerald-400 font-mono"
@@ -202,7 +202,7 @@
                 </div>
               </td>
               <td class="px-4 py-4 whitespace-nowrap text-sm text-indigo-300">
-                Cortex Agent
+                Visionary AI
               </td>
               <td
                 class="px-4 py-4 whitespace-nowrap text-sm font-semibold text-emerald-400 font-mono"
@@ -244,7 +244,7 @@
                 </div>
               </td>
               <td class="px-4 py-4 whitespace-nowrap text-sm text-indigo-300">
-                Cortex Agent
+                Algo Architech
               </td>
               <td
                 class="px-4 py-4 whitespace-nowrap text-sm font-semibold text-emerald-400 font-mono"
@@ -286,7 +286,7 @@
                 </div>
               </td>
               <td class="px-4 py-4 whitespace-nowrap text-sm text-indigo-300">
-                Cortex Agent
+                Cognitive Synth
               </td>
               <td
                 class="px-4 py-4 whitespace-nowrap text-sm font-semibold text-emerald-400 font-mono"
@@ -328,7 +328,7 @@
                 </div>
               </td>
               <td class="px-4 py-4 whitespace-nowrap text-sm text-indigo-300">
-                Cortex Agent
+                System Sovereign
               </td>
               <td
                 class="px-4 py-4 whitespace-nowrap text-sm font-semibold text-emerald-400 font-mono"
@@ -370,7 +370,7 @@
                 </div>
               </td>
               <td class="px-4 py-4 whitespace-nowrap text-sm text-indigo-300">
-                Cortex Agent
+               Neuro Titan
               </td>
               <td
                 class="px-4 py-4 whitespace-nowrap text-sm font-semibold text-emerald-400 font-mono"
@@ -412,7 +412,7 @@
                 </div>
               </td>
               <td class="px-4 py-4 whitespace-nowrap text-sm text-indigo-300">
-                Cortex Agent
+                Singularity Prime
               </td>
               <td
                 class="px-4 py-4 whitespace-nowrap text-sm font-semibold text-emerald-400 font-mono"
@@ -454,7 +454,7 @@
                 </div>
               </td>
               <td class="px-4 py-4 whitespace-nowrap text-sm text-indigo-300">
-                Cortex Agent
+                Omega Protocol
               </td>
               <td
                 class="px-4 py-4 whitespace-nowrap text-sm font-semibold text-emerald-400 font-mono"
